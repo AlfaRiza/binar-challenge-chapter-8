@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Button } from "react-bootstrap";
 
-const PlayerForm = ({onHandleCreate}) => {
+const PlayerForm = ({onHandleCreate, FormPlayer, onHandleResetFormPlayer, onHandleUpdatePlayer}) => {
     const [Username, setUsername] = useState('')
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
@@ -12,6 +12,7 @@ const PlayerForm = ({onHandleCreate}) => {
         setEmail('')
         setPassword('')
         setExp(0)
+        onHandleResetFormPlayer()
     }
 
     const onHandleSubmit = (e) => {
@@ -19,11 +20,27 @@ const PlayerForm = ({onHandleCreate}) => {
         const player = {
             username: Username, 
             email: Email, 
-            experience: Exp}
+            password: Password,
+            experience: Exp
+        }
 
-        onHandleCreate(player);
-        onHandleResetForm()
+        if(FormPlayer?.id) {
+            onHandleUpdatePlayer({ ...player, id: FormPlayer?.id})
+        } else {
+            onHandleCreate(player);
+        }
+        onHandleResetForm();
+
     }
+
+    useEffect(() => {
+        setUsername(FormPlayer? FormPlayer.username : '')
+        setEmail(FormPlayer? FormPlayer.email: '')
+        setPassword(FormPlayer? FormPlayer.password : '')
+        setExp(FormPlayer? FormPlayer.experience : 0)
+    
+    }, [FormPlayer])
+    
     
     return (
         <>
@@ -48,9 +65,14 @@ const PlayerForm = ({onHandleCreate}) => {
                     <Form.Control required type="number" onChange={(e) => setExp(e.target.value)} value={Exp} min={0} name="experience" id="experience" placeholder="Experience" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <div className="d-flex justify-content-between">
+                    <Button onClick={onHandleResetForm} variant={"outline-info"} type="reset">
+                        Reset
+                    </Button>
+                    <Button variant={FormPlayer ? "success" : "primary"} type="submit">
+                        {FormPlayer ? 'Update' : 'Submit'}
+                    </Button>
+                </div>
             </Form>
         </>
     )

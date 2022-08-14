@@ -1,7 +1,7 @@
 import React from 'react'
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
-const PlayerList = ({players}) => {
+const PlayerList = ({players, selectEdit}) => {
     return (
         <>
             <Table responsive striped bordered hover>
@@ -11,6 +11,7 @@ const PlayerList = ({players}) => {
                         <th>Username</th>
                         <th>Email</th>
                         <th>Experience</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,6 +21,9 @@ const PlayerList = ({players}) => {
                             <td>{player.username}</td>
                             <td>{player.email}</td>
                             <td>{player.experience}</td>
+                            <td>
+                                <Button onClick={ () => selectEdit(player.id) } variant="primary">Edit</Button>
+                            </td>
                         </tr>)
                     }) }
                     
