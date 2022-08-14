@@ -1,31 +1,14 @@
 const routes = require('express').Router();
 const { Player } = require("../models");
 
-routes.get('/dashboard', async (req, res) => {
-    const players = await Player.findAll()
-    res.render('dashboard', {players})
-})
+const WebController = require("../controllers/web.controller");
 
-routes.get('/dashboard/create', (req, res) => {
-    res.render('create')
-})
+routes.get('/dashboard', WebController.index)
 
-routes.get('/dashboard/delete/:id', async (req, res) => {
-    const {id} = req.params
+routes.get('/dashboard/create', WebController.create)
 
-    const destroy = await Player.destroy({
-        where: {id: id}
-    })
+routes.get('/dashboard/delete/:id', WebController.delete)
 
-    if (destroy)
-        res.redirect('/dashboard')
-})
-
-routes.get('/dashboard/detail/:id', async (req, res) => {
-    const { id } = req.params
-
-    const playerData = await Player.findByPk(id)
-    res.render('player', {playerData})
-})
+routes.get('/dashboard/detail/:id', WebController.show)
 
 module.exports = routes;

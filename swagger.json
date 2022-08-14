@@ -28,39 +28,42 @@
           "200": {
             "description": "success finding data",
             "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "example": 1
-                },
-                "username": {
-                  "type": "string",
-                  "example": "playername"
-                },
-                "email": {
-                  "type": "string",
-                  "example": "player@gmail.com"
-                },
-                "password": {
-                  "type": "string",
-                  "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
-                },
-                "experience": {
-                  "type": "string",
-                  "example": 600000
-                },
-                "lvl": {
-                  "type": "string",
-                  "example": 600
-                },
-                "createdAt": {
-                  "type": "string",
-                  "example": "2022-08-13T23:51:30.731Z"
-                },
-                "updatedAt": {
-                  "type": "string",
-                  "example": "2022-08-13T23:51:30.731Z"
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "playername"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "player@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
+                  },
+                  "experience": {
+                    "type": "string",
+                    "example": 600000
+                  },
+                  "lvl": {
+                    "type": "string",
+                    "example": 600
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "example": "2022-08-13T23:51:30.731Z"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "example": "2022-08-13T23:51:30.731Z"
+                  }
                 }
               }
             }
@@ -92,7 +95,7 @@
                 },
                 "password": {
                   "type": "string",
-                  "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
+                  "example": "password"
                 },
                 "experience": {
                   "type": "string",
@@ -246,7 +249,7 @@
                 },
                 "password": {
                   "type": "string",
-                  "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
+                  "example": "password"
                 },
                 "experience": {
                   "type": "string",
