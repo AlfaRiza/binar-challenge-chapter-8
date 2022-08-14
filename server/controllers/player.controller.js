@@ -28,6 +28,9 @@ class PlayerController {
       };
       const createdPlayer = await Player.create(newPlayer);
       if (createdPlayer) {
+        if (req.accepts('html')){
+          return res.redirect('/dashboard')
+        }
         return res.status(201).json({
           result: "Success",
           data: createdPlayer,

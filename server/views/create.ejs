@@ -1,0 +1,32 @@
+
+    <div class="container ">
+        <div class="row">
+            <div class="col">
+                <h2>Create User Data</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/api/v1/players" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" id="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="experience" class="form-label">Experience</label>
+                        <input type="number" min="0" name="experience" class="form-control" id="experience">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+

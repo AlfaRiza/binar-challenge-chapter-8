@@ -1,0 +1,338 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Binar Gamehub API",
+    "description": "dockumentation API for Binar Gamehub",
+    "contact": {
+      "email": "hello@gamehub.com"
+    },
+    "version": "1.0.11"
+  },
+  "host": "localhost:4000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "players",
+      "description": "Everything about players data"
+    }
+  ],
+  "paths": {
+    "/players": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Get player data",
+        "description": "Get all player data",
+        "responses": {
+          "200": {
+            "description": "success finding data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "username": {
+                  "type": "string",
+                  "example": "playername"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "player@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
+                },
+                "experience": {
+                  "type": "string",
+                  "example": 600000
+                },
+                "lvl": {
+                  "type": "string",
+                  "example": 600
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2022-08-13T23:51:30.731Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2022-08-13T23:51:30.731Z"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Create new player data",
+        "description": "Create new player data using JSON payload",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "player data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "playername"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "player@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
+                },
+                "experience": {
+                  "type": "string",
+                  "example": 600000
+                }
+              }
+            }
+          }
+        ],
+        "consumes": [
+          "aplication/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "username": {
+                  "type": "string",
+                  "example": "playername"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "player@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
+                },
+                "experience": {
+                  "type": "string",
+                  "example": 600000
+                },
+                "lvl": {
+                  "type": "string",
+                  "example": 600
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2022-08-13T23:51:30.731Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2022-08-13T23:51:30.731Z"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Failed to process payload"
+          }
+        }
+      }
+    },
+    "/players/{id}": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Get player data detail",
+        "description": "Get player data by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "PlayerId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success finding data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "username": {
+                  "type": "string",
+                  "example": "playername"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "player@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
+                },
+                "experience": {
+                  "type": "string",
+                  "example": 600000
+                },
+                "lvl": {
+                  "type": "string",
+                  "example": 600
+                },
+                "createdAt": {
+                  "type": "string",
+                  "example": "2022-08-13T23:51:30.731Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2022-08-13T23:51:30.731Z"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "data not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Update player data",
+        "description": "Update player data using JSON payload",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "PlayerId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "player data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "playername"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "player@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "$2b$10$48ulCHHlFF.6RjSDKQNrYO9PACmP7W7zlmph4Tu23Nk8I2hoDbnUe"
+                },
+                "experience": {
+                  "type": "string",
+                  "example": 600000
+                }
+              }
+            }
+          }
+        ],
+        "consumes": [
+          "aplication/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Player with id :id successfully updated"
+          },
+          "422": {
+            "description": "Failed to process payload"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Delete player data",
+        "description": "Delete player data by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "PlayerId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Player with id :id, was deleted successfully"
+          }
+        }
+      }
+    },
+    "/players/exp/{id}": {
+      "post": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Give Experience player",
+        "description": "Give Experience player data using JSON payload",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "PlayerId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "player data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "exp": {
+                  "type": "string",
+                  "example": 600000
+                }
+              }
+            }
+          }
+        ],
+        "consumes": [
+          "aplication/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Player with id = :id gain :exp experience. Total experience = 600000"
+          },
+          "422": {
+            "description": "Failed to process payload"
+          }
+        }
+      }
+    }
+  }
+}
